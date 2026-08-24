@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSteady } from '../../context/SteadyContext';
 import { ArrowLeft, Check } from 'lucide-react';
-import { ThinkingOrb } from 'thinking-orbs';
+import { SafeOrb as ThinkingOrb } from '../common/SafeOrb';
 
 export const WeeklyInsights: React.FC = () => {
   const { weeklyInsights, tasks, user, setActiveScreen, theme } = useSteady();
