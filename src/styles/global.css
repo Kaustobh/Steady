@@ -1,0 +1,344 @@
+@import './tokens.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+/* Typography Rules */
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: var(--text-xl);
+}
+
+h2 {
+  font-size: var(--text-lg);
+}
+
+h3 {
+  font-size: var(--text-base);
+}
+
+p, span, label, button, input, textarea, select {
+  font-family: var(--font-body);
+}
+
+/* Responsive App Layout Container (Adapts from Mobile to Tablet & Desktop) */
+.app-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  position: relative;
+  box-shadow: var(--neu-shadow-hero);
+  animation: fadeInPage 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: max-width var(--transition-normal), margin var(--transition-normal);
+}
+
+/* Small Mobile ( < 360px ) */
+@media (max-width: 359px) {
+  .app-container {
+    padding: 0 4px;
+  }
+}
+
+/* Tablet Breakpoint ( 768px - 1023px ) */
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 720px;
+    margin: 1.5rem auto;
+    min-height: calc(100vh - 3rem);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+}
+
+/* Laptop & Desktop Breakpoint ( ≥ 1024px ) */
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 1040px;
+    margin: 2.5rem auto;
+    min-height: calc(100vh - 5rem);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+
+  /* Responsive Multi-column Grid Utilities */
+  .grid-responsive-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .grid-responsive-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+/* Keyframe Animations for Smooth Page & Modal Transitions */
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Interactive & Button Base Styles */
+button, input, textarea, select {
+  font-inherit: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  user-select: none;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Neumorphic Main Buttons */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  box-shadow: var(--neu-shadow-flat);
+  transition: all var(--transition-fast);
+}
+
+[data-theme="dark"] .btn-primary {
+  color: #1E2126;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: var(--neu-shadow-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  box-shadow: var(--neu-shadow-pressed);
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  box-shadow: var(--neu-shadow-flat);
+  transition: all var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  box-shadow: var(--neu-shadow-hover);
+  color: var(--color-primary);
+}
+
+.btn-secondary:active {
+  box-shadow: var(--neu-shadow-pressed);
+  transform: scale(0.98);
+}
+
+.btn-ghost {
+  color: var(--color-text-muted);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+
+.btn-ghost:hover {
+  color: var(--color-text);
+  box-shadow: var(--neu-shadow-flat);
+  background-color: var(--color-surface);
+}
+
+.btn-ghost:active {
+  box-shadow: var(--neu-shadow-pressed);
+  transform: scale(0.96);
+}
+
+/* Neumorphic Chip Styles */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  box-shadow: var(--neu-shadow-flat);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+  border: none;
+}
+
+.chip:hover {
+  color: var(--color-text);
+  box-shadow: var(--neu-shadow-hover);
+}
+
+.chip:active {
+  transform: scale(0.97);
+}
+
+.chip.selected {
+  background-color: var(--color-surface);
+  box-shadow: var(--neu-shadow-pressed);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Neumorphic Cards */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--neu-shadow-flat);
+  transition: all var(--transition-normal);
+  border: none;
+  animation: modalSlideUp 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-elevated {
+  background-color: var(--color-surface-2);
+  box-shadow: var(--neu-shadow-hover);
+}
+
+.card-hero {
+  background-color: var(--color-surface);
+  box-shadow: var(--neu-shadow-hero);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Neumorphic Segmented Control */
+.segmented-control {
+  display: flex;
+  background-color: var(--color-surface);
+  padding: var(--space-1);
+  border-radius: var(--radius-md);
+  gap: var(--space-1);
+  box-shadow: var(--neu-shadow-inset);
+}
+
+.segmented-option {
+  flex: 1;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.segmented-option.active {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  font-weight: 600;
+  box-shadow: var(--neu-shadow-flat);
+}
+
+/* Neumorphic Inputs & Textareas */
+input[type="text"], input[type="url"], input[type="number"], textarea, select {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--neu-shadow-inset);
+  border: none;
+  transition: box-shadow var(--transition-fast);
+}
+
+input[type="text"]:focus, input[type="url"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
+  box-shadow: var(--neu-shadow-inset), 0 0 0 2px var(--color-primary-subtle);
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-divider);
+  border-radius: var(--radius-full);
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
