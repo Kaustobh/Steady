@@ -22,11 +22,11 @@
   --color-text-faint: #919DAA;
   --color-chrome-bg: rgba(234, 239, 245, 0.90);
 
-  /* 10% Accent (Trust & Action Teal) */
-  --color-primary: #3A6B7C;
-  --color-primary-hover: #2E5563;
-  --color-primary-highlight: #C9D9DD;
-  --color-primary-subtle: rgba(58, 107, 124, 0.12);
+  /* 10% Accent — Amber Ochre (#C27B2B Light / #E6A756 Dark) */
+  --color-primary: #C27B2B;
+  --color-primary-hover: #A0631F;
+  --color-primary-highlight: #F5E4CE;
+  --color-primary-subtle: rgba(194, 123, 43, 0.12);
 
   /* Semantic Feedback Colors */
   --color-success: #4A7C59;
@@ -56,7 +56,7 @@
   --space-8: 32px;
   --space-12: 48px;
 
-  /* Border Radii (Neumorphism favors generous soft curves) */
+  /* Border Radii */
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 20px;
@@ -89,10 +89,10 @@
   --color-text-faint: #677484;
   --color-chrome-bg: rgba(30, 33, 38, 0.92);
 
-  --color-primary: #6FA3B3;
-  --color-primary-hover: #5A8A99;
-  --color-primary-highlight: #2F3A3F;
-  --color-primary-subtle: rgba(111, 163, 179, 0.15);
+  --color-primary: #E6A756;
+  --color-primary-hover: #D49340;
+  --color-primary-highlight: #3A2B18;
+  --color-primary-subtle: rgba(230, 167, 86, 0.15);
 
   --color-success: #6CB081;
   --color-success-bg: #1B2E22;
