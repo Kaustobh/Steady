@@ -74,3 +74,10 @@ git remote add origin https://github.com/YOUR_USERNAME/steady-app.git
 # 3. Push initial release to remote
 git push -u origin main
 ```
+
+---
+
+## 📄 License & Copyright
+
+© 2026 Kaustobh Bhattacharya. All rights reserved. Released under the [MIT License](LICENSE).
+
