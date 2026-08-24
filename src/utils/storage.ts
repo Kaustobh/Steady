@@ -48,7 +48,8 @@ export const savePersistentState = async (key: string, data: any) => {
 export const loadPersistentState = <T>(key: string, fallback: T): T => {
   try {
     const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) : fallback;
+    if (!item || item === 'undefined' || item === 'null') return fallback;
+    return JSON.parse(item);
   } catch (e) {
     console.warn(`Storage load error for ${key}:`, e);
     return fallback;
