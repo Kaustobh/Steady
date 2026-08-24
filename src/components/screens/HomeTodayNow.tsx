@@ -9,9 +9,9 @@ export const HomeTodayNow: React.FC = () => {
   const [expandedWhyNow, setExpandedWhyNow] = useState<boolean>(true);
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
 
-  // Filter tasks
+  // Filter pending tasks strictly
   const pendingTasks = tasks.filter(t => t.status === 'pending');
-  const topPriorityTask = pendingTasks[0] || tasks[0];
+  const topPriorityTask = pendingTasks[0];
   const secondaryTasks = pendingTasks.slice(1, 4);
   const completedCount = tasks.filter(t => t.status === 'completed').length;
   const totalTasks = tasks.length;
@@ -182,8 +182,8 @@ export const HomeTodayNow: React.FC = () => {
           <p style={{ fontSize: 'var(--text-xs)', color: 'var(--color-text-muted)', marginBottom: '20px', lineHeight: 1.5 }}>
             Create your top priority action item for right now to start your focus session.
           </p>
-          <button onClick={() => setIsAddModalOpen(true)} className="btn-primary" style={{ margin: '0 auto' }}>
-            <Plus size={16} /> Add Your First Task
+          <button onClick={() => setIsAddModalOpen(true)} className="btn-primary" style={{ margin: '0 auto', gap: '8px' }}>
+            <ThinkingOrb state="working" size={20} theme={orbTheme} /> Add Action Task
           </button>
         </div>
       )}
