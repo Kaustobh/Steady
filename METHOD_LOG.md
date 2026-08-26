@@ -6,8 +6,7 @@
 
 ---
 
-> *"Writing code isn't the scarce thing anymore. What's scarce is method: how someone decides what to build, how they stay honest while building it, how they catch the AI when it hands back something that looks right and isn't, and how they know the thing actually works."*  
-> — Prateek Narang (Founder/Lead, ColoredCow)
+> *"The essence of modern product engineering lies in method: how we discover real human friction, how we make deliberate architectural trade-offs, how we interrogate and correct AI model outputs, and how we validate system behavior under real-world stress."*
 
 ---
 
